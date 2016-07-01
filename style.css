@@ -1,0 +1,53 @@
+@font-face {
+	font-family: 'weatherIcons';
+	src: url('weather-icons-master/font/weathericons-regular-webfont.eot');
+	src: url('weather-icons-master/font/weathericons-regular-webfont.woff') format('woff');
+	src: url('weather-icons-master/font/weathericons-regular-webfont.woff2') format('woff2');
+    src: url('weather-icons-master/font/weathericons-regular-webfont.ttf')  format('truetype');
+    src: url('weather-icons-master/font/weathericons-regular-webfont.svg') format('svg');
+}
+body {
+	text-align: center;
+	color: white;
+	font-family: helvetica;
+	background-color: #00796B;
+	background: linear-gradient(-45deg, #24C6DC, #514A9D);
+	background: -webkit-linear-gradient(-45deg, #24C6DC, #514A9D);
+	background: -o-linear-gradient(-45deg, #24C6DC, #514A9D);
+	background: -moz-linear-gradient(-45deg, #24C6DC, #514A9D);
+	background: -ms-linear-gradient(-45deg, #24C6DC, #514A9D);
+	height: 100vh;
+	width: 100vw;
+}
+.content {
+	border: 1px solid rgba(1, 1, 1, 0);
+	border-radius: 0px;
+	margin-right: 10%;
+	margin-left: 10%;
+	margin-top: 10%;
+	color: white;
+	box-shadow: 5px 2px 15px #464646;
+	background-color: #9CCC65;
+}
+._city {
+	font-size: 50px;
+}
+._temp {
+	font-size: 40px;
+}
+._unit {
+	font-size: 50px;
+	padding-top: 5px;
+}
+._weather {
+	font-size: 50px;
+}
+._icon {
+	font-size: 60px;
+}
+a {
+	color: white;
+}
+a:hover, a:visited {
+	color: white;
+}
