@@ -6,7 +6,7 @@
     src: url('weather-icons-master/font/weathericons-regular-webfont.ttf')  format('truetype');
     src: url('weather-icons-master/font/weathericons-regular-webfont.svg') format('svg');
 }
-body {
+body, html {
 	text-align: center;
 	color: white;
 	font-family: 'Mirza';
@@ -16,6 +16,9 @@ body {
 	background: -o-linear-gradient(-45deg, #24C6DC, #514A9D);
 	background: -moz-linear-gradient(-45deg, #24C6DC, #514A9D);
 	background: -ms-linear-gradient(-45deg, #24C6DC, #514A9D);
+	margin: 0; 
+	height: 100%; 
+	overflow: hidden;
 	height: 100vh;
 	width: 100vw;
 }
@@ -50,4 +53,13 @@ a {
 }
 a:hover, a:visited {
 	color: white;
+}
+.looader {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('loading.gif') 50% 50% no-repeat rgba(249,249,249, 1);
 }
