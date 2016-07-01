@@ -9,7 +9,7 @@
 body {
 	text-align: center;
 	color: white;
-	font-family: helvetica;
+	font-family: 'Mirza';
 	background-color: #00796B;
 	background: linear-gradient(-45deg, #24C6DC, #514A9D);
 	background: -webkit-linear-gradient(-45deg, #24C6DC, #514A9D);
@@ -30,13 +30,13 @@ body {
 	background-color: #9CCC65;
 }
 ._city {
-	font-size: 50px;
+	font-size: 60px;
 }
 ._temp {
-	font-size: 40px;
+	font-size: 50px;
 }
 ._unit {
-	font-size: 50px;
+	font-size: 40px;
 	padding-top: 5px;
 }
 ._weather {
