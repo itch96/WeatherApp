@@ -11,13 +11,15 @@
 		<link rel = "stylesheet" href="style.css"/>
 	</head>
 	<body>
+		<div class="loader"></div>
+
 		<div class="content well">
 			<div class="row">
-				<h1 class="_city"><strong>CITY</strong></h1>
+				<h1 class="_city"><strong></strong></h1>
 			</div>
 
 			<div class="row">
-				<p class="_temp col-xs-1 col-xs-offset-4 col-sm-1 col-sm-offset-5 col-ms-1 col-ms-offset-4 col-md-1 col-md-offset-5">Temperature</p>
+				<p class="_temp col-xs-1 col-xs-offset-4 col-sm-1 col-sm-offset-5 col-ms-1 col-ms-offset-4 col-md-1 col-md-offset-5"></p>
 				<a href="#" title="Click to Change Units"><i class="_unit wi wi-celsius col-xs-1 col-xs-offset-1 col-sm-1 col-sm-offset-0 col-ms-1 col-ms-offset-0 col-md-1 col-md-offset-0"></i></a>
 			</div>
 
@@ -26,12 +28,18 @@
 			</div>
 
 			<div class="row">
-				<p class="_weather">Weather</p>
+				<p class="_weather"></p>
 			</div>
 		</div>
 
 		<script type="text/javascript" src="Frameworks/jQuery/jQuery.js"></script>
 		<script type="text/javascript" src="Frameworks/bootstrap/js/bootstrap.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+		<script type="text/javascript">
+			$(window).load(function(){
+				$('.loader').fadeOut('slow');
+			});
+		</script>
 		<script type="text/javascript" src="jscript.js"></script>
 	</body>
 </html>
