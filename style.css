@@ -25,24 +25,32 @@ body, html {
 .content {
 	border: 1px solid rgba(1, 1, 1, 0);
 	border-radius: 0px;
-	margin-right: 10%;
-	margin-left: 10%;
-	margin-top: 10%;
+	margin: 5%;
 	color: white;
+	height: 80%;
 	box-shadow: 5px 2px 15px #464646;
 	background-color: #9CCC65;
 }
 ._city {
 	font-size: 7vw;
+	text-shadow: 1px 6px 7px #242424;
+	padding: 10px;
 }
 ._temp {
 	font-size: 5vw;
 }
 ._unit {
-	font-size: 5vw;
+	font-size: 6vw;
+	margin-top: 30px;
+	text-shadow: 1px 6px 7px #242424;
+}
+._date {
+	font-size: 3vw;
+	text-decoration: bold;
 }
 ._weather {
 	font-size: 3vw;
+	padding-top: 30px;
 }
 ._icon {
 	font-size: 6vw;
