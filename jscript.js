@@ -4,14 +4,11 @@ var main = function () {
 	var openWeatherMapKey = "bfd3b440167863075755d5567ff8b227";
 	var weatherIcons = $.getJSON("https://gist.githubusercontent.com/tbranyen/62d974681dea8ee0caa1/raw/3405bfb2a76b7cbd90fde33d8536f0cd13706955/icons.json");
 	var latitude, longitude, city;
-	var C = 1, F = 0;
 	var temperatureK = [], temperatureC = [], temperatureF = [], weatherData = [], date = [], code = [];
 	// getting the value of the latitude and longitude of the user from ip-api.com
 	$.getJSON(api_ip, function(data) {
-		$.each(data, function(key, value){ 			
-			if(key == "lat") {latitude = value.toFixed(2).toString();}
-			else if(key == "lon") {longitude = value.toFixed(2).toString();}
-		});
+		latitude = (data.lat).toFixed(2);
+		longitude = (data.lon).toFixed(2);
 		var api_weather = "http://api.openweathermap.org/data/2.5/forecast?lat="+latitude+"&lon="+longitude+"&appid="+openWeatherMapKey;
 		// getting the weather info from the latitude and longitude previously recieved
 		$.getJSON(api_weather, function(data) {
@@ -42,27 +39,35 @@ var main = function () {
 			for(i = 0; i < 5; i ++) {
 				$('._temp' + (i + 1)).html((temperatureC[i]).toFixed(0));
 				$('._date' + (i + 1)).html(date[i]);
-				$('._icon' + (i + 1)).addClass("wi-owm-" + code[i]).css({'textShadow': '2px 5px 7px #242424'});
+				$('._icon' + (i + 1)).addClass("wi-owm-" + code[i]);
 				$('._weather' + (i + 1)).html(weatherData[i]);
 			}
 		});
-		$('._unit').on('click', function(){
-			if(C) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
+		$('._unitC').on('click', function(){
+			if(!$(this).hasClass('active')) {
+				for(i = 0; i < 5; i ++) {
+					$('._temp' + (i + 1)).html(temperatureC[i].toFixed(0));
+				}
+				$(this).addClass('active');
+				$('._unitF').removeClass('active');
+			}
+		});
+		$('._unitF').on('click', function(){
+			if(!$(this).hasClass('active')) {
 				for(i = 0; i < 5; i ++) {
 					$('._temp' + (i + 1)).html(temperatureF[i].toFixed(0));
 				}
-				C = 0; F = 1;
+				$(this).addClass('active');
+				$('._unitC').removeClass('active');
 			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				for(i = 0; i < 5; i ++) {
-					$('._temp' + (i + 1)).html(temperatureC[i].toFixed(0));	
-				}
-				F = 0; C = 1;
-			}
+		});
+
+		$('._day2, ._day3, ._day4, ._day5').hover(
+			function(){
+				$(this).css({boxShadow: '2px 5px 20px #242424', 'z-index': '1000'})
+		},
+			function(){
+				$(this).css({boxShadow: 'none', 'z-index': '0'})
 		});
 	});
 };

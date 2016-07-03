@@ -11,55 +11,55 @@ body, html {
 	color: white;
 	font-family: 'Mirza';
 	background-color: #00796B;
-	background: linear-gradient(-45deg, #24C6DC, #514A9D);
-	background: -webkit-linear-gradient(-45deg, #24C6DC, #514A9D);
-	background: -o-linear-gradient(-45deg, #24C6DC, #514A9D);
-	background: -moz-linear-gradient(-45deg, #24C6DC, #514A9D);
-	background: -ms-linear-gradient(-45deg, #24C6DC, #514A9D);
-	margin: 0; 
-	height: 100%; 
-	overflow: hidden;
+	background: linear-gradient(180deg, #DAD299, #B0DAB9);
+	background: -webkit-linear-gradient(180deg, #DAD299, #B0DAB9);
+	background: -o-linear-gradient(180deg, #DAD299, #B0DAB9);
+	background: -moz-linear-gradient(180deg, #DAD299, #B0DAB9);
+	background: -ms-linear-gradient(180deg, #DAD299, #B0DAB9);
 	height: 100vh;
 	width: 100vw;
 }
-.content {
-	border: 1px solid rgba(1, 1, 1, 0);
-	border-radius: 0px;
-	margin: 5%;
-	color: white;
-	height: 80%;
-	box-shadow: 5px 2px 15px #464646;
-	background-color: #9CCC65;
-}
 ._city {
-	font-size: 7vw;
-	text-shadow: 1px 6px 7px #242424;
-	padding: 10px;
-}
-._temp {
 	font-size: 5vw;
-}
-._unit {
-	font-size: 6vw;
-	margin-top: 30px;
-	text-shadow: 1px 6px 7px #242424;
-}
-._date {
-	font-size: 3vw;
-	text-decoration: bold;
-}
-._weather {
-	font-size: 3vw;
-	padding-top: 30px;
+	/*text-shadow: 0px 2px 5px rgba(0,0,0,0.1),
+                 2px 5px 5px rgba(0,0,0,0.05),
+                 -2px 5px 5px rgba(0,0,0,0.05);*/
+     text-shadow: 0px 0px 10px cyan,
+     				0px 0px 15px blue;
 }
 ._icon {
-	font-size: 6vw;
+	text-shadow: 2px 2px 4px #242424;
 }
-a {
-	color: white;
+._day1 {
+	height: 80vh;
+	font-size: 30px;
+	padding-top: 20vh;
+	box-shadow: 2px 3px 10px #242424;
+	background: linear-gradient(-45deg, #00d2ff, #3a7bd5);
+	background: -webkit-linear-gradient(-45deg, #00d2ff, #3a7bd5);
+	background: -o-linear-gradient(-45deg, #00d2ff, #3a7bd5);
+	background: -moz-linear-gradient(-45deg, #00d2ff, #3a7bd5);
+	background: -ms-linear-gradient(-45deg, #00d2ff, #3a7bd5);
 }
-a:hover, a:visited {
-	color: white;
+._weather1 {
+	padding: 15px;
+}
+._day2, ._day3, ._day4, ._day5 {
+	font-size: 2vw;
+	height: 15vh;
+	margin: 2vh 0 2vh 0;
+	padding: 2vh 0 2vh 0;
+	background: radial-gradient(#00d2ff, #3a7bd5);
+	background: -webkit-radial-gradient(#00d2ff, #3a7bd5);
+	background: -o-radial-gradient(#00d2ff, #3a7bd5);
+	background: -moz-radial-gradient(#00d2ff, #3a7bd5);
+	background: -ms-radial-gradient(#00d2ff, #3a7bd5);
+}
+._unit {
+	font-size: 40px;
+}
+._temp {
+	text-decoration: bold;
 }
 .loader {
 	position: fixed;
@@ -69,4 +69,22 @@ a:hover, a:visited {
 	height: 100%;
 	z-index: 9999;
 	background: url('loading.gif') 50% 50% no-repeat rgba(249,249,249, 0.7);
+}
+.active {
+	text-shadow: 2px 5px 5px #3a7bd5,
+				 2px 3px 5px black;
+}
+@media only screen and (max-width: 767px){
+	._city {
+		font-size: 35px;
+	}
+	._day1 {
+		font-size: 30px;
+	}
+}
+@media only screen and (max-width: 480px) {
+	._day2, ._day3, ._day4, ._day5 {
+		font-size: 10px;
+		padding-top: 30px;
+	}
 }
