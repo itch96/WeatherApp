@@ -20,14 +20,14 @@ var main = function () {
 			temperatureK[0] = data.list[0].main.temp;
 			weatherData[0] = data.list[0].weather[0].main;
 			code[0] = (data.list[0].weather[0].id).toString();
-			date[0] = (data.list[0].dt_txt).substring(9, 10) + "-" + (data.list[0].dt_txt).substring(5, 7);
+			date[0] = (data.list[0].dt_txt).substring(8, 10) + "-" + (data.list[0].dt_txt).substring(5, 7);
 			// storing the temperature, weather, and respective code for icon data of 5 consecutive days in an array temperatureK, weatherData, and code
 			while(index < (data.list).length) {
 				if((data.list[index].dt_txt).substring(11, 19) == "00:00:00") {
 					temperatureK[i] = data.list[index].main.temp;
 					weatherData[i] = data.list[index].weather[0].main;
 					code[i] = (data.list[index].weather[0].id).toString();
-					date[i] = (data.list[index].dt_txt).substring(9, 10) + "-" + (data.list[index].dt_txt).substring(5, 7);
+					date[i] = (data.list[index].dt_txt).substring(8, 10) + "-" + (data.list[index].dt_txt).substring(5, 7);
 					i ++;
 				}
 				index ++;
@@ -64,77 +64,6 @@ var main = function () {
 				F = 0; C = 1;
 			}
 		});
-
-		/*$('._unit1').on('click', function(){
-			if(C[0]) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
-				$('._temp1').html(temperatureF[0].toFixed(0));
-				C[0] = 0; F[0] = 1;
-			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				$('._temp1').html(temperatureC[0].toFixed(0));
-				F[0] = 0; C[0] = 1;	
-			}
-		});
-		$('._unit2').on('click', function(){
-			if(C[1]) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
-				$('._temp2').html(temperatureF[1].toFixed(0));
-				C[1] = 0; F[1] = 1;
-			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				$('._temp2').html(temperatureC[1].toFixed(0));
-				F[1] = 0; C[1] = 1;	
-			}
-		});
-		$('._unit3').on('click', function(){
-			if(C[2]) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
-				$('._temp3').html(temperatureF[2].toFixed(0));
-				C[2] = 0; F[2] = 1;
-			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				$('._temp3').html(temperatureC[2].toFixed(0));
-				F[2] = 0; C[2] = 1;	
-			}
-		});
-		$('._unit4').on('click', function(){
-			if(C[3]) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
-				$('._temp4').html(temperatureF[3].toFixed(0));
-				C[3] = 0; F[3] = 1;
-			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				$('._temp4').html(temperatureC[3].toFixed(0));
-				F[3] = 0; C[3] = 1;	
-			}
-		});
-		$('._unit5').on('click', function(){
-			if(C[4]) {
-				$(this).removeClass('wi-celsius');
-				$(this).addClass('wi-fahrenheit');
-				$('._temp5').html(temperatureF[4].toFixed(0));
-				C[4] = 0; F[4] = 1;
-			}
-			else {
-				$(this).removeClass('wi-fahrenheit');
-				$(this).addClass('wi-celsius');
-				$('._temp5').html(temperatureC[4].toFixed(0));
-				F[4] = 0; C[4] = 1;	
-			}
-		});*/
 	});
 };
 
