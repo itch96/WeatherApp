@@ -32,7 +32,12 @@ var main = function () {
 					code[i] = (data.list[index].weather[0].id).toString();
 					date[i] = (data.list[index].dt_txt).substring(8, 10) + "-" + (data.list[index].dt_txt).substring(5, 7);
 					humidity[i] = data.list[index].main.humidity;
-					windSpeed[i] = data.list[index].wind.speed;
+					if(data.list[index].wind) {
+						windSpeed[i] = data.list[index].wind.speed;
+					}
+					else {
+						windSpeed[i] = "Cannot fetch Data";
+					}
 					i ++;
 				}
 				index ++;
@@ -50,13 +55,13 @@ var main = function () {
 			$('._city').html(city);
 			for(i = 0; i < 5; i ++) {
 				$('._temp' + (i + 1)).html((temperatureC[i]).toFixed(0));
-				$('._minTemp' + (i + 1)).html("Minimum: " + (minTempC[i]).toFixed(0));
-				$('._maxTemp' + (i + 1)).html("Maximum: " + (maxTempC[i]).toFixed(0));
+				$('._minTemp' + (i + 1)).html("<strong>Minimum:</strong> " + (minTempC[i]).toFixed(0));
+				$('._maxTemp' + (i + 1)).html("<strong>Maximum:</strong> " + (maxTempC[i]).toFixed(0));
 				$('._date' + (i + 1)).html(date[i]);
 				$('._icon' + (i + 1)).addClass("wi-owm-" + code[i]);
 				$('._weather' + (i + 1)).html(weatherData[i]);
-				$('._humidity' + (i + 1)).html("Humidity: " + humidity[i]);
-				$('._windSpeed' + (i + 1)).html("Wind&nbspSpeed: " + windSpeed[i]);
+				$('._humidity' + (i + 1)).html("<strong>Humidity:</strong> " + humidity[i]);
+				$('._windSpeed' + (i + 1)).html("<strong>Wind&nbspSpeed:</strong> " + windSpeed[i]);
 			}
 		});
 		$('._unitC').on('click', function(){
