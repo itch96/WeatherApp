@@ -1,3 +1,3 @@
 # WeatherApp
 
-It shows the current weather of your place.
+It shows the 5 day weather forecast of your place.
