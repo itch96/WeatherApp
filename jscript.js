@@ -4,15 +4,14 @@ var main = function () {
 	var weatherIcons = $.getJSON("https://gist.githubusercontent.com/tbranyen/62d974681dea8ee0caa1/raw/3405bfb2a76b7cbd90fde33d8536f0cd13706955/icons.json");
 	var openWeatherMapKey = ""; // I guess I'm not supposed to share the key.
 	var latitude, longitude, city;
-	var temperatureK = [], temperatureC = [], temperatureF = [], weatherData = [], date = [], code = [], minTempK = [], maxTempK = [], minTempC = [], maxTempC = [], minTempF = [], maxTempF = [], humidity = [], windSpeed = [];
+	var temperatureK = [], temperatureC = [], temperatureF = [], weatherData = [], date = [], code = [], minTempK = [], maxTempK = [], minTempC = [], maxTempC = [], minTempF = [], maxTempF = [], humidity = [];
 	// getting the value of the latitude and longitude of the user from ip-api.com
 	$.getJSON(api_ip, function(data) {
 		latitude = (data.lat).toFixed(2);
 		longitude = (data.lon).toFixed(2);
-		var api_weather = "http://api.openweathermap.org/data/2.5/forecast?lat="+latitude+"&lon="+longitude+"&appid="+openWeatherMapKey;
 		// getting the weather info from the latitude and longitude previously recieved
+		var api_weather = "http://api.openweathermap.org/data/2.5/forecast?lat="+latitude+"&lon="+longitude+"&appid="+openWeatherMapKey;
 		$.getJSON(api_weather, function(data) {
-			var i = 1, index = 0;
 			city = data.city.name;
 			temperatureK[0] = data.list[0].main.temp;
 			weatherData[0] = data.list[0].weather[0].main;
@@ -21,23 +20,17 @@ var main = function () {
 			minTempK[0] = data.list[0].main.temp_min;
 			maxTempK[0] = data.list[0].main.temp_max;
 			humidity[0] = data.list[0].main.humidity;
-			windSpeed[0] = data.list[0].wind.speed;
 			// storing the temperature, weather, and respective code for icon data of 5 consecutive days in an array temperatureK, weatherData, and code
+			var i = 1, index = 0;
 			while(index < (data.list).length) {
 				if((data.list[index].dt_txt).substring(11, 19) == "00:00:00") {
+					date[i] = (data.list[index].dt_txt).substring(8, 10) + "-" + (data.list[index].dt_txt).substring(5, 7);
 					temperatureK[i] = data.list[index].main.temp;
 					minTempK[i] = data.list[index].main.temp_min;
 					maxTempK[i] = data.list[index].main.temp_max;
 					weatherData[i] = data.list[index].weather[0].main;
 					code[i] = (data.list[index].weather[0].id).toString();
-					date[i] = (data.list[index].dt_txt).substring(8, 10) + "-" + (data.list[index].dt_txt).substring(5, 7);
 					humidity[i] = data.list[index].main.humidity;
-					if(data.list[index].wind) {
-						windSpeed[i] = data.list[index].wind.speed;
-					}
-					else {
-						windSpeed[i] = "Cannot fetch Data";
-					}
 					i ++;
 				}
 				index ++;
@@ -60,8 +53,7 @@ var main = function () {
 				$('._date' + (i + 1)).html(date[i]);
 				$('._icon' + (i + 1)).addClass("wi-owm-" + code[i]);
 				$('._weather' + (i + 1)).html(weatherData[i]);
-				$('._humidity' + (i + 1)).html("<strong>Humidity:</strong> " + humidity[i]);
-				$('._windSpeed' + (i + 1)).html("<strong>Wind&nbspSpeed:</strong> " + windSpeed[i]);
+				$('._humidity' + (i + 1)).html("<strong>Humidity:</strong> " + humidity[i] + "%");
 			}
 		});
 		$('._unitC').on('click', function(){
